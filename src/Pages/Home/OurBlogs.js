@@ -12,7 +12,10 @@ const OurBlogs = () => {
                 <Typography variant="h3" gutterBottom>
                     Explore our latest blogs
                 </Typography>
-                <Grid container rowSpacing={1} columnSpacing={{ sm: 2, md: 3 }}>
+                <Grid container rowSpacing={2} columnSpacing={1} sx={{
+                    justifyContent: 'center',
+                }}
+                >
                     {
                         [...Array(10)].map(item => <SingleBlog
                             key={item}

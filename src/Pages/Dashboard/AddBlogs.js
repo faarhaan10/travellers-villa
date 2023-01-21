@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 
 const AddBlogs = () => {
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
     return (
         <Container sx={{ width: { md: '20rem', sm: '100%' } }}>
