@@ -15,13 +15,13 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import AddBlogs from './AddBlogs';
+import { Link, Outlet } from 'react-router-dom';
 
 const drawerWidth = 240;
 
 
 // menu items array
-const dashboardRoutes = ['add blogs', 'view blogs', 'manage users', 'make admin'];
+const dashboardRoutes = ['add-blogs', 'view-blogs', 'manage-users', 'make-admin'];
 
 export default function Dashboard(props) {
     const { window } = props;
@@ -37,15 +37,20 @@ export default function Dashboard(props) {
         <div>
             <Toolbar />
             <Divider />
+
+            {/* dashboard routes */}
             <List>
                 {dashboardRoutes.map((text, index) => (
                     <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text.toLocaleUpperCase()} />
-                        </ListItemButton>
+                        <Link to={`${text}`}>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                </ListItemIcon>
+                                <ListItemText primary={text.toLocaleUpperCase()} />
+                            </ListItemButton>
+                        </Link>
+
                     </ListItem>
                 ))}
             </List>
@@ -116,7 +121,7 @@ export default function Dashboard(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-                <AddBlogs />
+                <Outlet />
             </Box>
         </Box>
     );
