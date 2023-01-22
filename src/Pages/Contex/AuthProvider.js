@@ -7,9 +7,13 @@ const AuthProvider = ({ children }) => {
         email: 'faarhaan10@gmail.com',
         photoURL: 'https://i.pinimg.com/originals/8d/'
     }
+    const url = 'http://localhost:6006';
+
+
 
     const data = {
         user,
+        url
     }
 
     return (

@@ -1,11 +1,12 @@
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 import { Container } from '@mui/system';
+import axios from 'axios';
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { MyContext } from '../../Contex/AuthProvider';
 
 const AddBlogs = () => {
-    const { user } = useContext(MyContext)
+    const { user, url } = useContext(MyContext)
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
@@ -15,7 +16,18 @@ const AddBlogs = () => {
             authorEmail: user.email,
             ...data
         }
-        console.log(newBlog)
+
+        axios.post(`${url}/blog`, newBlog)
+            .then(res => {
+                if (res.data.success) {
+                    alert('Success');
+                }
+                else {
+                    alert(res.data.message);
+                }
+            });
+
+
 
     };
     return (

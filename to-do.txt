@@ -1,3 +1,4 @@
-1. authentication
-2. context api
-3. and others 
+1. Dashboard
+2. add-blogs form
+3. axios
+4..... show data from database at the home page
