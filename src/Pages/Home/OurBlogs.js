@@ -17,7 +17,7 @@ const OurBlogs = () => {
                 }}
                 >
                     {
-                        [...Array(10)].map(item => <SingleBlog
+                        [...Array(9)].map(item => <SingleBlog
                             key={item}
                             blog={item}
                         />)

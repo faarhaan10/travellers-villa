@@ -40,7 +40,7 @@ export default function SingleBlog({ blog }) {
 
     return (
         <Grid item xs={12} md={4}>
-            <Card sx={{ maxWidth: 345 }} className='card-shadow'>
+            <Card sx={{ maxWidth: { md: 345, xs: 1 } }} className='card-shadow'>
                 <CardHeader
                     avatar={
                         <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

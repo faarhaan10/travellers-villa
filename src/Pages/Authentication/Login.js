@@ -1,7 +1,8 @@
-import { Button, Stack, TextField, Typography } from '@mui/material';
+import { Button, Chip, Stack, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -15,12 +16,14 @@ const Login = () => {
             height: '100vh',
         }}>
             <Box sx={{
-                width: { md: '20rem', xs: 'auto' }
+                width: { md: 345, xs: 1 },
+                mx: { md: 0, xs: 2 },
+
             }}>
                 <Box
                     component='form'
                     onSubmit={handleSubmit(onSubmit)}
-                    sx={{ backgroundColor: '#ddd', px: 3, py: 5 }}
+                    sx={{ backgroundColor: '#ddd', px: 3, py: 5, borderRadius: 2, }}
                 >
                     <Typography variant="h5" gutterBottom>
                         Signin
@@ -40,7 +43,14 @@ const Login = () => {
                             size="small"
                             {...register("password", { required: true })}
                         />
+                        <Typography variant="caption" display="block" gutterBottom>
+                            Create an account?
+                            <Link to='/register' >
+                                Signup
+                            </Link>
+                        </Typography>
                         <Button type='submit' variant="contained">Login</Button>
+
                     </Stack>
                 </Box>
 

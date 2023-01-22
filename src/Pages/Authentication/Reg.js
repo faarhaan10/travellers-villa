@@ -2,24 +2,28 @@ import { Button, Stack, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
 const Reg = () => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
     return (
-        <Box style={{}}>
-            <Box fullwidth sx={{
+        <Box style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100vh',
+        }}>
+            <Box sx={{
+                width: { md: 345, xs: 1 },
+                mx: { md: 0, xs: 2 },
 
-                display: 'flex',
-                height: '100vh',
-                alignItems: 'center',
-                justifyContent: 'center'
             }}>
                 <Box
                     component='form'
                     onSubmit={handleSubmit(onSubmit)}
-                    sx={{ backgroundColor: '#ddd', px: 3, py: 5, width: { md: '20rem', xs: 'auto' }, }}
+                    sx={{ backgroundColor: '#ddd', px: 3, py: 5, borderRadius: 2, }}
                 >
                     <Typography variant="h5" gutterBottom>
                         Signup
@@ -46,7 +50,13 @@ const Reg = () => {
                             size="small"
                             {...register("password", { required: true })}
                         />
-                        <Button type='submit' variant="contained">Login</Button>
+                        <Typography variant="caption" display="block" gutterBottom>
+                            Already have an account?
+                            <Link to='/login' >
+                                Signin
+                            </Link>
+                        </Typography>
+                        <Button type='submit' variant="contained">Submit</Button>
                     </Stack>
                 </Box>
 
