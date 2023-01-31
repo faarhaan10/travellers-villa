@@ -32,7 +32,8 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function SingleBlog({ blog }) {
-    console.log(blog);
+    const { title, description, date, authorEmail, image } = blog;
+
     const [expanded, setExpanded] = React.useState(false);
     const handleExpandClick = () => {
         setExpanded(!expanded);
@@ -44,7 +45,7 @@ export default function SingleBlog({ blog }) {
                 <CardHeader
                     avatar={
                         <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                            R
+                            {title.charAt(0).toUpperCase()}
                         </Avatar>
                     }
                     action={
@@ -52,20 +53,18 @@ export default function SingleBlog({ blog }) {
                             <MoreVertIcon />
                         </IconButton>
                     }
-                    title="Shrimp and Chorizo Paella"
-                    subheader="September 14, 2016"
+                    title={title}
+                    subheader={date}
                 />
                 <CardMedia
                     component="img"
                     height="194"
-                    image="https://i.ibb.co/gJLt043/parbotipur.jpg"
+                    image={image || "https://i.ibb.co/gJLt043/parbotipur.jpg"}
                     alt="Paella dish"
                 />
                 <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                        This impressive paella is a perfect party dish and a fun meal to cook
-                        together with your guests. Add 1 cup of frozen peas along with the mussels,
-                        if you like.
+                        {description}
                     </Typography>
                 </CardContent>
                 <CardActions disableSpacing>

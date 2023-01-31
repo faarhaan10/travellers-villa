@@ -1,9 +1,27 @@
 import { Grid, Typography } from '@mui/material';
 import { Container } from '@mui/system';
-import React from 'react';
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
+import { MyContext } from '../Contex/AuthProvider';
 import SingleBlog from './SingleBlog';
 
 const OurBlogs = () => {
+    const { url } = useContext(MyContext);
+    const [blogs, setBlogs] = useState([]);
+
+
+    useEffect(() => {
+        axios.get(`${url}/blogs`)
+            .then(res => {
+                if (res.data.success) {
+                    alert('Success');
+                    setBlogs(res.data.result);
+                }
+                else {
+                    alert(res.data.message);
+                }
+            })
+    }, [url])
 
 
     return (
@@ -17,7 +35,7 @@ const OurBlogs = () => {
                 }}
                 >
                     {
-                        [...Array(9)].map(item => <SingleBlog
+                        blogs.map(item => <SingleBlog
                             key={item}
                             blog={item}
                         />)

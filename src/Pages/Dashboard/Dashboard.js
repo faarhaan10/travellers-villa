@@ -84,12 +84,14 @@ export default function Dashboard(props) {
                     </Typography>
                 </Toolbar>
             </AppBar>
+
             <Box
                 component="nav"
                 sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
                 aria-label="mailbox folders"
             >
                 {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+                <h1>    </h1>
                 <Drawer
                     container={container}
                     variant="temporary"
